@@ -5,19 +5,26 @@ import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
 
 function HomePage() {
-    const estilos = { /* backgroundColor: 'red'  */}
+    const estilos = {
+
+    };
+
     return (
         <>
             <CSSReset />
-            <div style={estilos}>
+            <div style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: 1,
+            }}>
                 <Menu />
                 <Header />
                 <Timeline playlists={config.playlists} />
             </div>
         </>
-
     );
 }
+
 
 
 
@@ -27,8 +34,8 @@ const StyledHeader = styled.div`
         height: 80px;
         border-radius: 50%;
     }
-
     .user-info {
+        margin-top: 50px;
         display: flex;
         align-items: center;
         width: 100%;
@@ -36,7 +43,6 @@ const StyledHeader = styled.div`
         gap: 16px;
     }
 `;
-
 function Header() {
     return (
         <StyledHeader>
@@ -44,19 +50,21 @@ function Header() {
             <section className="user-info">
                 <img src={`https://github.com/${config.github}.png`} />
                 <div>
-                    <h2>{config.name}</h2>
-                    <p>{config.job}</p>
+                    <h2>
+                        {config.name}
+                    </h2>
+                    <p>
+                        {config.job}
+                    </p>
                 </div>
-
-
             </section>
-
         </StyledHeader>
     )
 }
 
 function Timeline(props) {
-    const playlistNames = Object.keys(props.playlists)
+    const playlistNames = Object.keys(props.playlists);
+
     return (
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
