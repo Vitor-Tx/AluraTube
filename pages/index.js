@@ -55,17 +55,12 @@ function Header() {
     )
 }
 
-function Timeline(propriedades) {
-    // console.log("Dentro do componente", propriedades.playlists);
-    const playlistNames = Object.keys(propriedades.playlists);
-    // Statement
-    // Retorno por expressão
+function Timeline(props) {
+    const playlistNames = Object.keys(props.playlists)
     return (
         <StyledTimeline>
             {playlistNames.map((playlistName) => {
-                const videos = propriedades.playlists[playlistName];
-                console.log(playlistName);
-                console.log(videos);
+                const videos = props.playlists[playlistName];
                 return (
                     <section>
                         <h2>{playlistName}</h2>
